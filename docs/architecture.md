@@ -1,29 +1,35 @@
-# Architecture v0.1
+# Architecture v0.2
 
-## Deployment View
+## Deployment View v0.2
+```mermaid
+flowchart TB
+    U[User Device]
+    DNS[DNS Resolver]
+    AUTH[Authoritative DNS]
+    FW1[Provider Firewall]
+    UFW[UFW]
+    C[Caddy :80/:443]
+    G[Gunicorn 127.0.0.1:8000]
+    A[Flask]
+    
+    U -->|DNS query| DNS
+    DNS --> AUTH
+    U -->|HTTPS :443| FW1
+    FW1 --> UFW
+    UFW --> C
+    C -->|HTTP loopback| G
+    G --> A
+## Public DNS
+`25832071002.4.197.24.35.sslip.io A 4.197.24.35`
 
-## Resource Constraints
-- 1 vCPU
-- 1 GB RAM
-- 20 GB disk
+## Public Ports
+- 22/tcp — SSH administration
+- 80/tcp — HTTP redirect / ACME challenge
+- 443/tcp — HTTPS
 
-## Security Decisions
-- non-root administration
-- SSH key authentication
-- password SSH disabled
-- UFW enabled
-- backend loopback-only
+## Private Host Port
+- 127.0.0.1:8000 — Gunicorn
 
-## Current Limitations
-- HTTP only
-- single VPS
-- no database
-- no container
-- no CI/CD
+## TLS
+Managed automatically by Caddy through a public ACME CA.
 
-## Planned Evolution
-- M04 DNS + HTTPS
-- M05 persistent data
-- M06 container
-- M07 IaC
-- M09 CI/CD

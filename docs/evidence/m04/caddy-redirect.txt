@@ -1,0 +1,6 @@
+HTTP/1.1 308 Permanent Redirect
+Connection: close
+Location: https://25832071002.4.197.24.35.sslip.io/
+Server: Caddy
+Date: Sun, 11 Oct 2026 11:40:00 GMT
+

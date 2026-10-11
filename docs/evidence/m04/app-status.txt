@@ -1,0 +1,21 @@
+● cc-m03.service - PTI 2802 M03 Flask Application
+     Loaded: loaded (/etc/systemd/system/cc-m03.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-10-11 16:35:21 WIB; 2h 23min ago
+   Main PID: 727 (gunicorn)
+      Tasks: 4 (limit: 532)
+     Memory: 34.1M (peak: 35.5M)
+        CPU: 2.011s
+     CGroup: /system.slice/cc-m03.service
+             ├─727 /srv/cc-m03/.venv/bin/python /srv/cc-m03/.venv/bin/gunicorn --workers 1 --threads 2 --bind 127.0.0.1:8000 --timeout 30 --access-logfile - --error-logfile - app:app
+             └─923 /srv/cc-m03/.venv/bin/python /srv/cc-m03/.venv/bin/gunicorn --workers 1 --threads 2 --bind 127.0.0.1:8000 --timeout 30 --access-logfile - --error-logfile - app:app
+
+Oct 11 18:07:39 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:07:39 +0700] "GET / HTTP/1.1" 200 775 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/144.0.7559.95 Mobile/15E148 Safari/604.1"
+Oct 11 18:07:40 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:07:40 +0700] "GET /static/style.css HTTP/1.1" 200 0 "http://25832071002.4.197.24.35.sslip.io/" "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/144.0.7559.95 Mobile/15E148 Safari/604.1"
+Oct 11 18:07:40 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:07:40 +0700] "GET /favicon.ico HTTP/1.1" 404 207 "http://25832071002.4.197.24.35.sslip.io/" "Mozilla/5.0 (iPhone; CPU iPhone OS 26_3_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/144.0.7559.95 Mobile/15E148 Safari/604.1"
+Oct 11 18:08:39 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:08:39 +0700] "GET / HTTP/1.1" 200 775 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+Oct 11 18:08:39 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:08:39 +0700] "GET /favicon.ico HTTP/1.1" 404 207 "http://25832071002.4.197.24.35.sslip.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+Oct 11 18:13:30 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:13:30 +0700] "GET / HTTP/1.1" 200 775 "-" "axios/1.16.1"
+Oct 11 18:37:47 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:37:47 +0700] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.5.0"
+Oct 11 18:38:25 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:38:25 +0700] "GET /health HTTP/1.1" 200 91 "-" "curl/8.5.0"
+Oct 11 18:56:48 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:56:48 +0700] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.5.0"
+Oct 11 18:57:49 cc-m03-2026 gunicorn[923]: 127.0.0.1 - - [11/Oct/2026:18:57:49 +0700] "GET / HTTP/1.1" 200 775 "-" "curl/8.5.0"
